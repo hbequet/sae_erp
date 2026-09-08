@@ -50,6 +50,8 @@ dependencies {
 
     testImplementation 'com.h2database:h2'
 
+    compileOnly "com.github.spotbugs:spotbugs-annotations:4.10.4"
+    testCompileOnly "com.github.spotbugs:spotbugs-annotations:4.10.4"
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 }
 
