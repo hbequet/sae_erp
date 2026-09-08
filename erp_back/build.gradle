@@ -37,14 +37,17 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.17.2'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     implementation 'com.itextpdf:itext-core:9.4.0'
 
-    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.4.0'
     implementation 'org.apache.poi:poi:5.2.3'
 
     implementation 'org.springframework.security:spring-security-cas'
+
+    testImplementation 'com.h2database:h2'
 }
 
 tasks.named('test') {

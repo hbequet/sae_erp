@@ -25,7 +25,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-@Profile("dev")
+@Profile({"dev", "test"})
 public class SecurityConfig {
 
     private final CustomUserDetailsService customUserDetailsService;
