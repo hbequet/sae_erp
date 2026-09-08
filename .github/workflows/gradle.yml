@@ -43,7 +43,14 @@ jobs:
           path: erp_back/build/reports/tests/test/
 
       - name: Run SpotBugs with FindSecBugs
-        uses: advanced-security/spotbugs-findsecbugs-action@45266478cb8627da923977dacd1fa413fdb616a5 # v1.0.6
+        run: ./gradlew check --info --stacktrace
+
+      - name : Upload SpotBugs Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spotbugs-report
+          path: erp_back/build/reports/spotbugs/
 
   build-frontend:
     runs-on: ubuntu-latest
