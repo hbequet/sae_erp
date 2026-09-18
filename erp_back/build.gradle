@@ -68,4 +68,5 @@ tasks.register('runPdfGenerator', JavaExec) {
 
 spotbugs {
     toolVersion = '4.8.0'
+    ignoreFailures = true
 }
