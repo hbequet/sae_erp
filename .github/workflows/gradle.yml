@@ -35,6 +35,16 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper/
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -70,9 +80,14 @@ jobs:
           cache-dependency-path: './erp_front/package-lock.json'
 
       - name: Install dependencies & Build Vue
-        run: |
-          npm ci
-          npm run build
+        run: npm ci
+        working-directory: ./erp_front
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build the project
+        run: npm run build
 
   dependency-submission:
 
