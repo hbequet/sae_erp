@@ -70,3 +70,16 @@ spotbugs {
     toolVersion = '4.8.0'
     ignoreFailures = true
 }
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+        xml {
+            required = false
+        }
+    }
+}
