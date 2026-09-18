@@ -50,9 +50,10 @@ dependencies {
 
     testImplementation 'com.h2database:h2'
 
-    compileOnly "com.github.spotbugs:spotbugs-annotations:4.10.4"
-    testCompileOnly "com.github.spotbugs:spotbugs-annotations:4.10.4"
+    compileOnly "com.github.spotbugs:spotbugs-annotations:4.8.0"
+    testCompileOnly "com.github.spotbugs:spotbugs-annotations:4.8.0"
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
+
 }
 
 tasks.named('test') {
@@ -66,5 +67,5 @@ tasks.register('runPdfGenerator', JavaExec) {
 }
 
 spotbugs {
-    toolVersion = '4.10.4'
+    toolVersion = '4.8.0'
 }
