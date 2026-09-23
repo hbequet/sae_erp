@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: build/reports/tests/test/
+          path: erp_back/build/reports/tests/test/
 
   build-frontend:
     runs-on: ubuntu-latest
