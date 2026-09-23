@@ -2,6 +2,7 @@ package fr.iut_unilim.erp_back.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -50,6 +51,10 @@ public class AvailableMenu {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getLabel() {
         return label;
     }
@@ -66,7 +71,15 @@ public class AvailableMenu {
         return parent;
     }
 
+    public void setParent(AvailableMenu parent) {
+        this.parent = parent;
+    }
+
     public List<AvailableMenu> getChildren() {
         return children;
+    }
+
+    public void setChildren(List<AvailableMenu> children) {
+        this.children = (children != null) ? children : new ArrayList<>();
     }
 }
