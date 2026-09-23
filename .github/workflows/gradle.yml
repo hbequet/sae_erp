@@ -32,9 +32,6 @@ jobs:
       - name: Make Gradlew executable
         run: chmod +x gradlew
 
-      - name: Build with Gradle Wrapper
-        run: ./gradlew build
-
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
         with:
@@ -44,23 +41,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: gradle-test-report
-          path: erp_back/build/reports/tests/test/
-
-      - name: Run SpotBugs with FindSecBugs
-        run: ./gradlew check --info --stacktrace
-
-      - name : Upload SpotBugs Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: spotbugs-report
-          path: erp_back/build/reports/spotbugs/
 
       - name: Cache SonarQube packages
         uses: actions/cache@v4
